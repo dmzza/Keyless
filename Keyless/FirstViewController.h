@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class User;
+
 @interface FirstViewController : UIViewController <UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *messageField;
+@property (strong, nonatomic) IBOutlet UIButton *saveButton;
 @property (strong, nonatomic) NSDictionary *cipher;
+@property (strong, nonatomic) User *user;
 
 @end

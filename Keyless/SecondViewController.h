@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class User;
+@class Password;
+
 @interface SecondViewController : UIViewController
+
+@property (strong, nonatomic) User *user;
+@property (strong, nonatomic) IBOutlet UIButton *savedPassword1;
 
 @end

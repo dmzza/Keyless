@@ -7,6 +7,8 @@
 //
 
 #import "FirstViewController.h"
+#import "Password.h"
+#import "User.h"
 
 @interface FirstViewController ()
 
@@ -57,6 +59,7 @@
                      @"Bz", @"8",
                      @"xu", @"9",
                      nil];
+    [self.saveButton addTarget:self action:@selector(savePassword) forControlEvents:UIControlEventTouchDown];
 }
 
 - (void) textFieldDidEndEditing:(UITextField *)textField {
@@ -83,10 +86,26 @@
     return output;
 }
 
+- (void)savePassword {
+    Password *newSavedPassword = [[Password alloc] initWithName:@"Untitled" message:self.messageField.text customPassword:nil customUrl:nil];
+    NSMutableArray *tempArray = [[NSMutableArray alloc] initWithArray:self.user.passwords];
+    
+    [tempArray addObject:newSavedPassword];
+    self.user.passwords = [[NSArray alloc] initWithArray:tempArray];
+    [User saveUser:self.user];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if (!self.user) {
+        self.user = [[User alloc] init];
+    }
 }
 
 @end

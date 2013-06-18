@@ -22,6 +22,8 @@
 		635CFCF9176FF00500C8D4CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635CFCD8176FF00500C8D4CC /* UIKit.framework */; };
 		635CFD01176FF00500C8D4CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 635CFCFF176FF00500C8D4CC /* InfoPlist.strings */; };
 		635CFD03176FF00500C8D4CC /* KeylessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 635CFD02176FF00500C8D4CC /* KeylessTests.m */; };
+		635CFD101770198400C8D4CC /* Password.m in Sources */ = {isa = PBXBuildFile; fileRef = 635CFD0D1770069600C8D4CC /* Password.m */; };
+		635CFD111770198400C8D4CC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 635CFD0F17700A5000C8D4CC /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		635CFCFE176FF00500C8D4CC /* KeylessTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KeylessTests-Info.plist"; sourceTree = "<group>"; };
 		635CFD00176FF00500C8D4CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		635CFD02176FF00500C8D4CC /* KeylessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeylessTests.m; sourceTree = "<group>"; };
+		635CFD0C1770069600C8D4CC /* Password.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Password.h; sourceTree = "<group>"; };
+		635CFD0D1770069600C8D4CC /* Password.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Password.m; sourceTree = "<group>"; };
+		635CFD0E17700A5000C8D4CC /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		635CFD0F17700A5000C8D4CC /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,10 @@
 				635CFCED176FF00500C8D4CC /* SecondViewController.m */,
 				635CFCEF176FF00500C8D4CC /* Images.xcassets */,
 				635CFCDB176FF00500C8D4CC /* Supporting Files */,
+				635CFD0C1770069600C8D4CC /* Password.h */,
+				635CFD0D1770069600C8D4CC /* Password.m */,
+				635CFD0E17700A5000C8D4CC /* User.h */,
+				635CFD0F17700A5000C8D4CC /* User.m */,
 			);
 			path = Keyless;
 			sourceTree = "<group>";
@@ -254,6 +264,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				635CFD101770198400C8D4CC /* Password.m in Sources */,
+				635CFD111770198400C8D4CC /* User.m in Sources */,
 				635CFCEE176FF00500C8D4CC /* SecondViewController.m in Sources */,
 				635CFCE5176FF00500C8D4CC /* AppDelegate.m in Sources */,
 				635CFCEB176FF00500C8D4CC /* FirstViewController.m in Sources */,
@@ -383,6 +395,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Keyless/Keyless-Prefix.pch";
 				INFOPLIST_FILE = "Keyless/Keyless-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -396,6 +409,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Keyless/Keyless-Prefix.pch";
 				INFOPLIST_FILE = "Keyless/Keyless-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
