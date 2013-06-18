@@ -19,6 +19,44 @@
     [super viewDidLoad];
 	
     self.messageField.delegate = self;
+    self.cipher = [[NSDictionary alloc] initWithObjectsAndKeys:
+                     @"vq", @"a",
+                     @"Fj", @"b",
+                     @"Ba", @"c",
+                     @"sM", @"d",
+                     @"Jf", @"e",
+                     @"5v", @"f",
+                     @"b8", @"g",
+                     @"5D", @"h",
+                     @"DQ", @"i",
+                     @"aX", @"j",
+                     @"FR", @"k",
+                     @"BV", @"l",
+                     @"Eq", @"m",
+                     @"tR", @"n",
+                     @"uG", @"o",
+                     @"jZ", @"p",
+                     @"Gg", @"q",
+                     @"Wp", @"r",
+                     @"7y", @"s",
+                     @"85", @"t",
+                     @"T6", @"u",
+                     @"T3", @"v",
+                     @"Mb", @"w",
+                     @"sq", @"x",
+                     @"B5", @"y",
+                     @"nR", @"z",
+                     @"R2", @"0",
+                     @"j3", @"1",
+                     @"N5", @"2",
+                     @"3d", @"3",
+                     @"A3", @"4",
+                     @"J2", @"5",
+                     @"65", @"6",
+                     @"Ry", @"7",
+                     @"Bz", @"8",
+                     @"xu", @"9",
+                     nil];
 }
 
 - (void) textFieldDidEndEditing:(UITextField *)textField {
@@ -35,47 +73,10 @@
 
 - (NSString *) encrypt:(NSString *)message {
     NSString *output = [[NSString alloc] init];
-    NSDictionary *cipher = [[NSDictionary alloc] initWithObjectsAndKeys:
-                            @"vq", @"a",
-                            @"Fj", @"b",
-                            @"Ba", @"c",
-                            @"sM", @"d",
-                            @"Jf", @"e",
-                            @"5v", @"f",
-                            @"b8", @"g",
-                            @"5D", @"h",
-                            @"DQ", @"i",
-                            @"aX", @"j",
-                            @"FR", @"k",
-                            @"BV", @"l",
-                            @"Eq", @"m",
-                            @"tR", @"n",
-                            @"uG", @"o",
-                            @"jZ", @"p",
-                            @"Gg", @"q",
-                            @"Wp", @"r",
-                            @"7y", @"s",
-                            @"85", @"t",
-                            @"T6", @"u",
-                            @"T3", @"v",
-                            @"Mb", @"w",
-                            @"sq", @"x",
-                            @"B5", @"y",
-                            @"nR", @"z",
-                            @"R2", @"0",
-                            @"j3", @"1",
-                            @"N5", @"2",
-                            @"3d", @"3",
-                            @"A3", @"4",
-                            @"J2", @"5",
-                            @"65", @"6",
-                            @"Ry", @"7",
-                            @"Bz", @"8",
-                            @"xu", @"9",
-                            nil];
+
     if ([message length] > 0) {
         NSString *firstChar = [message substringToIndex:1];
-        output = [NSString stringWithFormat:@"%@%@", [cipher objectForKey:firstChar], [self encrypt:[message substringFromIndex:1]]];
+        output = [NSString stringWithFormat:@"%@%@", [self.cipher objectForKey:firstChar], [self encrypt:[message substringFromIndex:1]]];
     } else {
         output = @"";
     }

@@ -11,6 +11,6 @@
 @interface FirstViewController : UIViewController <UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *messageField;
-
+@property (strong, nonatomic) NSDictionary *cipher;
 
 @end
