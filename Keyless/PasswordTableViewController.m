@@ -68,28 +68,29 @@
     [super viewDidLoad];
 	
     self.messageField = [[UITextField alloc] init];
-    self.messageField.frame = CGRectMake(15,37,250,30);
+    self.messageField.frame = CGRectMake(15,27,255,30);
     self.messageField.borderStyle = UITextBorderStyleRoundedRect;
     self.messageField.keyboardType = UIKeyboardTypeDefault;
     self.messageField.delegate = self;
     
     self.saveButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    self.saveButton.frame = CGRectMake(280, 30, 44, 44);
+    self.saveButton.frame = CGRectMake(270, 20, 44, 44);
     
     
     [self.saveButton addTarget:self action:@selector(savePassword) forControlEvents:UIControlEventTouchDown];
 }
 
 - (void) textFieldDidEndEditing:(UITextField *)textField {
-    UIPasteboard *pb = [UIPasteboard generalPasteboard];
-    [pb setString:[self encrypt:self.messageField.text]];
-    NSURL *pastebotURL = [NSURL URLWithString:@"pastebot://"];
-    [[UIApplication sharedApplication] openURL:pastebotURL];
+    
     self.messageField.text = @"";
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
+    UIPasteboard *pb = [UIPasteboard generalPasteboard];
+    [pb setString:[self encrypt:self.messageField.text]];
+    NSURL *pastebotURL = [NSURL URLWithString:@"pastebot://"];
+    [[UIApplication sharedApplication] openURL:pastebotURL];
     return YES;
 }
 
@@ -183,6 +184,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.user = [User getUser];
     if (!self.user) {
         self.user = [[User alloc] init];
     }
