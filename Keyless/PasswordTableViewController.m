@@ -190,6 +190,16 @@
     [User saveUser:self.user];
 }
 
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSMutableArray *tempArray = [NSMutableArray arrayWithArray:self.user.passwords];
+        [tempArray removeObjectAtIndex:indexPath.row];
+        self.user.passwords = [NSArray arrayWithArray:tempArray];
+        [User saveUser:self.user];
+        [[self tableView] deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:YES];
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
