@@ -67,6 +67,7 @@
     [pb setString:[self encrypt:self.messageField.text]];
     NSURL *pastebotURL = [NSURL URLWithString:@"pastebot://"];
     [[UIApplication sharedApplication] openURL:pastebotURL];
+    self.messageField.text = @"";
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
