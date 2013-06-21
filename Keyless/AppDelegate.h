@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PasswordTableViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

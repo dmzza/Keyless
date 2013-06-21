@@ -10,10 +10,10 @@
 
 @class User;
 
-@interface FirstViewController : UIViewController <UITextFieldDelegate>
+@interface PasswordTableViewController : UITableViewController <UITextFieldDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextField *messageField;
-@property (strong, nonatomic) IBOutlet UIButton *saveButton;
+@property (strong, nonatomic) UITextField *messageField;
+@property (strong, nonatomic) UIButton *saveButton;
 @property (strong, nonatomic) NSDictionary *cipher;
 @property (strong, nonatomic) User *user;
 
