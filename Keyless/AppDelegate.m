@@ -12,9 +12,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
     PasswordTableViewController *passwordTableVC = [[PasswordTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    self.window.rootViewController = passwordTableVC;
+
+    UINavigationController *passwordNavController = [[UINavigationController alloc] initWithRootViewController:passwordTableVC];
+    self.window.rootViewController = passwordNavController;
     return YES;
 }
 							

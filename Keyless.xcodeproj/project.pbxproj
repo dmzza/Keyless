@@ -60,6 +60,8 @@
 		635CFD0D1770069600C8D4CC /* Password.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Password.m; sourceTree = "<group>"; };
 		635CFD0E17700A5000C8D4CC /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		635CFD0F17700A5000C8D4CC /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		63D604E81774B8EE002D7AEA /* PasswordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PasswordCell.h; sourceTree = "<group>"; };
+		63D604E91774B8EE002D7AEA /* PasswordCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PasswordCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,8 @@
 				635CFD0D1770069600C8D4CC /* Password.m */,
 				635CFD0E17700A5000C8D4CC /* User.h */,
 				635CFD0F17700A5000C8D4CC /* User.m */,
+				63D604E81774B8EE002D7AEA /* PasswordCell.h */,
+				63D604E91774B8EE002D7AEA /* PasswordCell.m */,
 			);
 			path = Keyless;
 			sourceTree = "<group>";

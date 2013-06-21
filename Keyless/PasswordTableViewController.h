@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) UITextField *messageField;
 @property (strong, nonatomic) UIButton *saveButton;
+@property (strong, nonatomic) UIBarButtonItem *lockButton;
+@property (strong, nonatomic) UIBarButtonItem *editButton;
 @property (strong, nonatomic) NSDictionary *cipher;
 @property (strong, nonatomic) User *user;
 

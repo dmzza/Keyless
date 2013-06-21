@@ -59,6 +59,7 @@
                    @"Bz", @"8",
                    @"xu", @"9",
                    nil];
+        self.title = @"Keyless";
     }
     return self;
 }
@@ -78,6 +79,25 @@
     
     
     [self.saveButton addTarget:self action:@selector(savePassword) forControlEvents:UIControlEventTouchDown];
+    
+    self.lockButton = [[UIBarButtonItem alloc] initWithTitle:@"Lock" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(beginEditing)];
+    [[self navigationItem] setLeftBarButtonItem:self.lockButton];
+    [[self navigationItem] setRightBarButtonItem:self.editButton];
+}
+
+- (void)beginEditing {
+    [[self tableView] setEditing:YES animated:YES];
+    [self.lockButton setEnabled:NO];
+    [self.editButton setTitle:@"Done"];
+    [self.editButton setAction:@selector(finishEditing)];
+}
+
+- (void)finishEditing {
+    [[self tableView] setEditing:NO animated:YES];
+    [self.lockButton setEnabled:YES];
+    [self.editButton setTitle:@"Edit"];
+    [self.editButton setAction:@selector(beginEditing)];
 }
 
 - (void) textFieldDidEndEditing:(UITextField *)textField {
@@ -117,7 +137,7 @@
     self.user.passwords = [[NSArray alloc] initWithArray:tempArray];
     [User saveUser:self.user];
     
-    [[self tableView] setEditing:YES animated:YES];
+    
     self.messageField.text = @"";
     
     [[self tableView] reloadData];
