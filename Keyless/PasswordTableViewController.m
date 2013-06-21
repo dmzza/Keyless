@@ -82,7 +82,7 @@
 
 - (void) textFieldDidEndEditing:(UITextField *)textField {
     
-    self.messageField.text = @"";
+    
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -91,6 +91,7 @@
     [pb setString:[self encrypt:self.messageField.text]];
     NSURL *pastebotURL = [NSURL URLWithString:@"pastebot://"];
     [[UIApplication sharedApplication] openURL:pastebotURL];
+    self.messageField.text = @"";
     return YES;
 }
 
@@ -115,6 +116,9 @@
     [tempArray addObject:newSavedPassword];
     self.user.passwords = [[NSArray alloc] initWithArray:tempArray];
     [User saveUser:self.user];
+    
+    [[self tableView] setEditing:YES animated:YES];
+    self.messageField.text = @"";
     
     [[self tableView] reloadData];
 }
@@ -162,6 +166,7 @@
 	
     cell.textLabel.text = [self.user.passwords[indexPath.row] name];
     cell.detailTextLabel.text = [self.user.passwords[indexPath.row] message];
+    cell.showsReorderControl = YES;
     
 	return cell;
 }
@@ -174,6 +179,15 @@
     [pb setString:[self encrypt:[self.user.passwords[indexPath.row] message]]];
     NSURL *pastebotURL = [NSURL URLWithString:@"pastebot://"];
     [[UIApplication sharedApplication] openURL:pastebotURL];
+}
+
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    Password *movingPassword = self.user.passwords[sourceIndexPath.row];
+    NSMutableArray *tempArray = [NSMutableArray arrayWithArray:self.user.passwords];
+    [tempArray removeObjectAtIndex:sourceIndexPath.row];
+    [tempArray insertObject:movingPassword atIndex:destinationIndexPath.row];
+    self.user.passwords = [[NSArray alloc] initWithArray:tempArray];
+    [User saveUser:self.user];
 }
 
 - (void)didReceiveMemoryWarning
